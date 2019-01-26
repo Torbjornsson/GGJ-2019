@@ -65,7 +65,7 @@ MonoBehaviour:
   Layers:
     serializedVersion: 2
     m_Bits: 513
-  GrabDistance: 2
+  GrabDistance: 1
   GrabOffset: {x: 0, y: 0.5, z: 0}
   HoldDistance: 0.5
   HoldElevation: 1
