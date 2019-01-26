@@ -46,7 +46,8 @@ public class ObjectSpawner : MonoBehaviour
         //var colliderResults = new Collider[16];
 
         var infiniteLoopGuard = 9999;
-        for (int i = 0; i < SpawnCount; i++)
+        var spawned = 0;
+        while(spawned < SpawnCount)
         {
             start:
 
@@ -70,19 +71,21 @@ public class ObjectSpawner : MonoBehaviour
                 if(res.Length > 0)
                 {
                     Debug.DrawRay(pos, Vector3.up);
-                    i--;
 
                     yield return null;
 
-                    goto start;  
+                    goto start;
                 }
 
                 yield return null;
             }
+
             
 
             Instantiate(selectedObject, pos, rot, null);
             spawnCandidates.RemoveAt(spawnIndex);
+
+            spawned++;
 
             yield return null;
         }
