@@ -1,0 +1,19 @@
+halfs
+corners
+middle
+outside
+near walls
+
+thing in place
+thing facing thing
+thing facing direction
+thing near thing
+
+feng shui
+
+players near place
+players near players
+players near thing
+players holding thing
+
+

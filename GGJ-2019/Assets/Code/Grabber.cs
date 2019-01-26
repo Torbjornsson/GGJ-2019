@@ -11,10 +11,15 @@ public class Grabber : MonoBehaviour
     public float HoldElevation;
 
     Joint joint;
+    bool grabbing;
+
+    public bool HoldingHeavy { get; private set; }
 
     [ContextMenu("Grab")]
-    void TryGrab()
+    public void TryGrab()
     {
+        if (grabbing) return;
+
         RaycastHit hit;
         Ray r = new Ray(transform.position, transform.forward);
 
@@ -23,7 +28,7 @@ public class Grabber : MonoBehaviour
         if (Physics.Raycast(r, out hit, GrabDistance, Layers))
         {
             var g = hit.collider.GetComponentInParent<Grabbable>();
-            if(g != null)
+            if (g != null)
             {
                 Grab(g, hit.point);
             }
@@ -32,14 +37,20 @@ public class Grabber : MonoBehaviour
 
     void Grab(Grabbable target, Vector3 point)
     {
+        grabbing = true;
+
+        HoldingHeavy = false;
+
         if (target.Heavy)
         {
+            HoldingHeavy = true;
+
             var spring = gameObject.AddComponent<SpringJoint>();
             spring.autoConfigureConnectedAnchor = false;
             spring.connectedBody = target.GetComponent<Rigidbody>();
             spring.anchor = Vector3.forward * HoldDistance + Vector3.up * HoldElevation;
             spring.connectedAnchor = target.transform.InverseTransformPoint(point);
-            spring.spring = 50;
+            spring.spring = 100;
             spring.damper = 10;
 
             joint = spring;
@@ -57,8 +68,14 @@ public class Grabber : MonoBehaviour
     }
 
     [ContextMenu("Release")]
-    void Release()
+    public void Release()
     {
+        if (!grabbing) return;
+
+
+        HoldingHeavy = false;
+
+        grabbing = false;
         Destroy(joint);
     }
 }
