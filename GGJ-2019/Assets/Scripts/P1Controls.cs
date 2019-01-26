@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class P1Controls : MonoBehaviour
 {
+
+    public float torque;
     private Rigidbody rb;
 
     private float speed = 1.0f;
@@ -28,8 +31,17 @@ public class P1Controls : MonoBehaviour
 
         rb.MovePosition(rb.position + movement * Time.deltaTime * speed);
 
-        //rb.velocity = movement;
+        Vector3 pos = rb.transform.forward;
 
-        //rb.AddForce(movement * speed);
+        float dot = Vector3.Dot(pos, movement);
+
+        float acos = (float)Math.Acos(dot);
+
+        Vector3 cross = Vector3.Cross(pos, movement);
+
+        rb.AddRelativeTorque(cross * torque * acos - (rb.angularVelocity / 2), ForceMode.VelocityChange);
+
+        if (Input.GetAxis("Fire1") > 0)
+            Debug.Log("P1 picks up");    
     }
 }
