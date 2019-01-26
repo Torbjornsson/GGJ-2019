@@ -21,11 +21,15 @@ public class P1Controls : MonoBehaviour
 
     void FixedUpdate()
     {
-        float moveH = Input.GetAxis("Horizontal1");
-        float moveV = Input.GetAxis("Vertical1");
+        float moveH = Input.GetAxis("Horizontal");
+        float moveV = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3 (moveH, 0.0f, moveV);
 
-        rb.AddForce(movement * speed);
+        rb.MovePosition(rb.position + movement * Time.deltaTime * speed);
+
+        //rb.velocity = movement;
+
+        //rb.AddForce(movement * speed);
     }
 }
