@@ -1,15 +1,14 @@
 fileFormatVersion: 2
-guid: 5a569e3cb24589c4bb5ab6128f2d3ade
+guid: 6df2cf29c5bffca49a39e37a558a181c
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: No Name
-    2100002: Texture
+    2100000: Texture
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Wall
+    4300000: LazyBoy
   externalObjects: {}
   materials:
     importMaterials: 1
