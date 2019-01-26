@@ -11,29 +11,29 @@ AvatarMask:
   m_Elements:
   - m_Path: 
     m_Weight: 1
-  - m_Path: Armature
+  - m_Path: Model
     m_Weight: 0
-  - m_Path: Armature/Root
+  - m_Path: Player
+    m_Weight: 0
+  - m_Path: Player/Root
+    m_Weight: 0
+  - m_Path: Player/Root/Arm.upperarm.l
+    m_Weight: 0
+  - m_Path: Player/Root/Arm.upperarm.l/Arm.forearm.l
+    m_Weight: 0
+  - m_Path: Player/Root/Arm.upperarm.l/Arm.forearm.l/Arm.forearm.l_end
+    m_Weight: 0
+  - m_Path: Player/Root/Arm.upperarm.r
+    m_Weight: 0
+  - m_Path: Player/Root/Arm.upperarm.r/Arm.forearm.r
+    m_Weight: 0
+  - m_Path: Player/Root/Arm.upperarm.r/Arm.forearm.r/Arm.forearm.r_end
+    m_Weight: 0
+  - m_Path: Player/Root/Leg.l
     m_Weight: 1
-  - m_Path: Armature/Root/Arm.upperarm.l
-    m_Weight: 0
-  - m_Path: Armature/Root/Arm.upperarm.l/Arm.forearm.l
-    m_Weight: 0
-  - m_Path: Armature/Root/Arm.upperarm.l/Arm.forearm.l/Arm.forearm.l_end
-    m_Weight: 0
-  - m_Path: Armature/Root/Arm.upperarm.r
-    m_Weight: 0
-  - m_Path: Armature/Root/Arm.upperarm.r/Arm.forearm.r
-    m_Weight: 0
-  - m_Path: Armature/Root/Arm.upperarm.r/Arm.forearm.r/Arm.forearm.r_end
-    m_Weight: 0
-  - m_Path: Armature/Root/Leg.l
+  - m_Path: Player/Root/Leg.l/Leg.l_end
     m_Weight: 1
-  - m_Path: Armature/Root/Leg.l/Leg.l_end
+  - m_Path: Player/Root/Leg.r
     m_Weight: 1
-  - m_Path: Armature/Root/Leg.r
+  - m_Path: Player/Root/Leg.r/Leg.r_end
     m_Weight: 1
-  - m_Path: Armature/Root/Leg.r/Leg.r_end
-    m_Weight: 1
-  - m_Path: Sphere
-    m_Weight: 0
