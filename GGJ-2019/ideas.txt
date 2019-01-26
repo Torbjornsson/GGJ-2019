@@ -4,10 +4,10 @@ middle
 outside
 near walls
 
-thing in place
-thing facing thing
-thing facing direction
-thing near thing
+x thing in place
+x thing facing thing
+x thing facing direction
+x thing near thing
 
 feng shui
 
@@ -15,8 +15,6 @@ players near place
 players near players
 players near thing
 players holding thing
-
-
 
 
 goal checker (component? SO?)
