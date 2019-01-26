@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &1715248420681156494
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4210878421724295038}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.0035755145, y: 0.02, z: 0.0069377944}
-  m_Center: {x: 0.003058586, y: 2.9278968e-17, z: 0.004958143}
 --- !u!65 &1642650544257029772
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26,7 +13,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.009735039, y: 0.003051685, z: 0.008413963}
   m_Center: {x: -0.00002118215, y: 0.008474147, z: 0.004220059}
---- !u!65 &7571092883234511707
+--- !u!65 &1715248420681156494
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,8 +24,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.009771055, y: 0.0030342566, z: 0.008413963}
-  m_Center: {x: -0.00003919303, y: -0.008482858, z: 0.0042200587}
+  m_Size: {x: 0.0035755145, y: 0.02, z: 0.0069377944}
+  m_Center: {x: 0.003058586, y: 2.9278968e-17, z: 0.004958143}
 --- !u!65 &6880205667300364526
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52,6 +39,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.009771058, y: 0.02, z: 0.0031933659}
   m_Center: {x: -0.000039190945, y: 2.719923e-17, z: 0.003049926}
+--- !u!65 &7571092883234511707
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4210878421724295038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.009771055, y: 0.0030342566, z: 0.008413963}
+  m_Center: {x: -0.00003919303, y: -0.008482858, z: 0.0042200587}
 --- !u!1 &6327450340275190066
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 5769176048691371081}
   - component: {fileID: 8687022666191900831}
   - component: {fileID: 1320898877332299798}
+  - component: {fileID: 1819516734215539344}
   m_Layer: 0
   m_Name: SofaSmall
   m_TagString: Untagged
@@ -117,6 +118,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1819516734215539344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6327450340275190066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c38aa2d0eecd268418c1d4110e8afa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Heavy: 1
 --- !u!1001 &4210878421724195294
 PrefabInstance:
   m_ObjectHideFlags: 0
