@@ -11,8 +11,47 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.00985274, y: 0.02, z: 0.008413964}
-  m_Center: {x: -0.00008002122, y: 1.2815234e-10, z: 0.004220059}
+  m_Size: {x: 0.0035755145, y: 0.02, z: 0.0069377944}
+  m_Center: {x: 0.003058586, y: 2.9278968e-17, z: 0.004958143}
+--- !u!65 &1642650544257029772
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4210878421724295038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.009735039, y: 0.003051685, z: 0.008413963}
+  m_Center: {x: -0.00002118215, y: 0.008474147, z: 0.004220059}
+--- !u!65 &7571092883234511707
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4210878421724295038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.009771055, y: 0.0030342566, z: 0.008413963}
+  m_Center: {x: -0.00003919303, y: -0.008482858, z: 0.0042200587}
+--- !u!65 &6880205667300364526
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4210878421724295038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.009771058, y: 0.02, z: 0.0031933659}
+  m_Center: {x: -0.000039190945, y: 2.719923e-17, z: 0.003049926}
 --- !u!1 &6327450340275190066
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,6 +172,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: fd871aa02f5a79245aea26378f6b52ed, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b7a0ee3c710814f44a6e00dbaac58f39, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd871aa02f5a79245aea26378f6b52ed, type: 3}
 --- !u!1 &4210878421724295038 stripped
