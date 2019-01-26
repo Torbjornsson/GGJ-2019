@@ -15,6 +15,8 @@ public class CombinedController : MonoBehaviour
     Rigidbody rb;
     Grabber grabber;
 
+    Animator anim;
+
     bool wantGrab;
     bool holdingHeavy => grabber.HoldingHeavy;
 
@@ -24,6 +26,7 @@ public class CombinedController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         grabber = GetComponent<Grabber>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -32,11 +35,13 @@ public class CombinedController : MonoBehaviour
         {
             wantGrab = true;
             grabber.TryGrab();
+            anim.SetBool("IsCarrying", true);
         }
         else if(wantGrab && Input.GetAxisRaw($"Player{Player}Fire") < 0.5f)
         {
             wantGrab = false;
             grabber.Release();
+            anim.SetBool("IsCarrying", false);
         }
     }
 
@@ -49,6 +54,8 @@ public class CombinedController : MonoBehaviour
         movement = Vector3.ClampMagnitude(movement, 1);
 
         rb.velocity = Vector3.MoveTowards(rb.velocity, movement * MovementSpeed, Acceleration * Time.fixedDeltaTime);
+
+        anim.SetBool("IsWalking", movement != Vector3.zero);
 
 
         if (!holdingHeavy && movement.magnitude > 0.2f)

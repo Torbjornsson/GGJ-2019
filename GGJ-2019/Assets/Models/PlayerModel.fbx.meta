@@ -17,6 +17,8 @@ ModelImporter:
     100022: Leg.r_end
     100024: Root
     100026: Sphere
+    100028: Model
+    100030: Player
     400000: Arm.forearm.l
     400002: Arm.forearm.l_end
     400004: Arm.forearm.r
@@ -31,14 +33,23 @@ ModelImporter:
     400022: Leg.r_end
     400024: Root
     400026: Sphere
+    400028: Model
+    400030: Player
     2100000: No Name
+    2100002: Texture
     4300000: Sphere
+    4300002: Model
     7400000: Carry
     7400002: Idle
     7400004: Walk
     7400006: Armature|Walk (1)
+    7400008: Player|Idle
+    7400010: Player|Walk
+    7400012: Player|Carry
     9500000: //RootNode
     13700000: Sphere
+    13700002: Model
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -68,8 +79,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle
-      takeName: Armature|Idle
+      name: Player|Idle
+      takeName: Player|Idle
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0
@@ -96,8 +107,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Walk
-      takeName: Armature|Walk
+      name: Player|Walk
+      takeName: Player|Walk
       firstFrame: 0
       lastFrame: 19
       wrapMode: 0
@@ -124,8 +135,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Carry
-      takeName: Armature|Carry
+      name: Player|Carry
+      takeName: Player|Carry
       firstFrame: 0
       lastFrame: 9
       wrapMode: 0
