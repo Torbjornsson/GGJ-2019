@@ -22,18 +22,26 @@ public class Grabber : MonoBehaviour
         if (grabbing) return;
 
         RaycastHit hit;
-        Ray r = new Ray(transform.TransformPoint(GrabOffset), transform.forward);
-
-        Debug.DrawRay(r.origin, r.direction * GrabDistance, Color.red, 1f);
-
-        if (Physics.Raycast(r, out hit, GrabDistance, Layers))
+        for (int i = 0; i < 5; i++)
         {
-            var g = hit.collider.GetComponentInParent<Grabbable>();
-            if (g != null)
+            var dir = Quaternion.AngleAxis(i * 10f, transform.right) * transform.forward;
+
+            Ray r = new Ray(transform.TransformPoint(GrabOffset), dir);
+
+            Debug.DrawRay(r.origin, r.direction * GrabDistance, Color.red, 1f);
+
+            if (Physics.Raycast(r, out hit, GrabDistance, Layers))
             {
-                Grab(g, hit.point);
+                var g = hit.collider.GetComponentInParent<Grabbable>();
+                if (g != null)
+                {
+                    Grab(g, hit.point);
+                    break;
+                }
             }
         }
+
+
     }
 
     void Grab(Grabbable target, Vector3 point)
