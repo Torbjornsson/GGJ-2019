@@ -51,8 +51,8 @@ public class Grabber : MonoBehaviour
             spring.connectedBody = target.GetComponent<Rigidbody>();
             spring.anchor = Vector3.forward * HoldDistance + Vector3.up * HoldElevation;
             spring.connectedAnchor = target.transform.InverseTransformPoint(point);
-            spring.spring = 100;
-            spring.damper = 10;
+            spring.spring = 500;
+            spring.damper = 100;
 
             joint = spring;
         }
