@@ -7,11 +7,15 @@ public class P2Controls : MonoBehaviour
 {
     private Rigidbody rb;
 
+    public float torque;
+
     private float speed = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        torque = 2.0f;
     }
 
     // Update is called once per frame
