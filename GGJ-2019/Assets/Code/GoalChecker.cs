@@ -3,13 +3,23 @@ using System.Collections.Generic;
 
 public class GoalChecker : MonoBehaviour
 {
-    List<Goal> Goals;
+    Goal[] TeamAGoals;
+    Goal[] TeamBGoals;
+
+    bool[] TeamAGoalStatus;
+    bool[] TeamBGoalStatus;
+
+    //List<Goal> Goals;
+
+    List<GoalObject> GoalObjects;
+
+    public int GoalsPerTeam = 3;
 
     private void OnGUI()
     {
         GUILayout.BeginVertical();
 
-        foreach(var g in Goals)
+        foreach (var g in TeamAGoals)
         {
             GUILayout.Label($"{g.Description}: {(g.CheckCompleted() ? "OK" : "NOT OK")}");
         }
@@ -19,21 +29,91 @@ public class GoalChecker : MonoBehaviour
 
     private void Start()
     {
-        Goals = new List<Goal>();
+        TeamAGoals = new Goal[GoalsPerTeam];
+        TeamBGoals = new Goal[GoalsPerTeam];
 
-        var objects = FindObjectsOfType<GoalObject>();
+        GoalObjects = new List<GoalObject>(FindObjectsOfType<GoalObject>());
 
-
-        foreach(var o in objects)
+        for (int i = 0; i < GoalsPerTeam; i++)
         {
-            var otherObject = objects[Random.Range(0, objects.Length)];
+            TeamAGoals[i] = GetGoal();
+            TeamBGoals[i] = GetGoal();
+        }
 
-            Goals.Add(new ObjectBySideWall(o));
-            Goals.Add(new ObjectByCorner(o));
-            Goals.Add(new ObjectByAnyWall(o));
-            Goals.Add(new ObjectFacingDirection(o));
-            Goals.Add(new ObjectNearObject(o, otherObject));
-            Goals.Add(new ObjectFacingObject(o, otherObject));
+        TeamAGoalStatus = new bool[GoalsPerTeam];
+        TeamBGoalStatus = new bool[GoalsPerTeam];
+
+
+        //    Goals = new List<Goal>();
+
+        //    var objects = FindObjectsOfType<GoalObject>();
+
+
+        //    foreach(var o in objects)
+        //    {
+        //        var otherObject = objects[Random.Range(0, objects.Length)];
+
+        //        Goals.Add(new ObjectBySideWall(o));
+        //        Goals.Add(new ObjectByCorner(o));
+        //        Goals.Add(new ObjectByAnyWall(o));
+        //        Goals.Add(new ObjectFacingDirection(o));
+        //        Goals.Add(new ObjectNearObject(o, otherObject));
+        //        Goals.Add(new ObjectFacingObject(o, otherObject));
+        //}
+    }
+
+    Goal GetGoal()
+    {
+        GoalObjects.Shuffle();
+        GoalObjects.Sort((aa, bb) => aa.UseCount.CompareTo(bb.UseCount));
+
+        var a = GoalObjects[0];
+        var b = GoalObjects[1];
+
+        var r = Random.Range(0, 8);
+
+        switch (r)
+        {
+            case 0:
+                a.UseCount++;
+                return new ObjectOnSideOfRoom(a);
+            case 1:
+                a.UseCount++;
+                return new ObjectInMIddleOfRoom(a);
+            case 2:
+                a.UseCount++;
+                return new ObjectBySideWall(a);
+            case 3:
+                a.UseCount++;
+                return new ObjectByAnyWall(a);
+            case 4:
+                a.UseCount++;
+                return new ObjectByCorner(a);
+            case 5:
+                a.UseCount++;
+                return new ObjectFacingDirection(a);
+            case 6:
+                a.UseCount++;
+                b.UseCount++;
+                return new ObjectNearObject(a, b);
+            case 7:
+                a.UseCount++;
+                b.UseCount++;
+                return new ObjectFacingObject(a, b);
+
+
+            default:
+                a.UseCount++;
+                return new ObjectOnSideOfRoom(a);
+        }
+    }
+
+    private void Update()
+    {
+        for (int i = 0; i < GoalsPerTeam; i++)
+        {
+            TeamAGoalStatus[i] = TeamAGoals[i].CheckCompleted();
+            TeamBGoalStatus[i] = TeamBGoals[i].CheckCompleted();
         }
     }
 
