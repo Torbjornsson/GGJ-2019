@@ -17,18 +17,6 @@ AvatarMask:
     m_Weight: 0
   - m_Path: Player/Root
     m_Weight: 0
-  - m_Path: Player/Root/Arm.upperarm.l
-    m_Weight: 1
-  - m_Path: Player/Root/Arm.upperarm.l/Arm.forearm.l
-    m_Weight: 1
-  - m_Path: Player/Root/Arm.upperarm.l/Arm.forearm.l/Arm.forearm.l_end
-    m_Weight: 0
-  - m_Path: Player/Root/Arm.upperarm.r
-    m_Weight: 1
-  - m_Path: Player/Root/Arm.upperarm.r/Arm.forearm.r
-    m_Weight: 1
-  - m_Path: Player/Root/Arm.upperarm.r/Arm.forearm.r/Arm.forearm.r_end
-    m_Weight: 0
   - m_Path: Player/Root/Leg.l
     m_Weight: 0
   - m_Path: Player/Root/Leg.l/Leg.l_end
@@ -37,3 +25,17 @@ AvatarMask:
     m_Weight: 0
   - m_Path: Player/Root/Leg.r/Leg.r_end
     m_Weight: 0
+  - m_Path: Player/Root/Upperbody
+    m_Weight: 1
+  - m_Path: Player/Root/Upperbody/Arm.upperarm.l
+    m_Weight: 1
+  - m_Path: Player/Root/Upperbody/Arm.upperarm.l/Arm.forearm.l
+    m_Weight: 1
+  - m_Path: Player/Root/Upperbody/Arm.upperarm.l/Arm.forearm.l/Arm.forearm.l_end
+    m_Weight: 1
+  - m_Path: Player/Root/Upperbody/Arm.upperarm.r
+    m_Weight: 1
+  - m_Path: Player/Root/Upperbody/Arm.upperarm.r/Arm.forearm.r
+    m_Weight: 1
+  - m_Path: Player/Root/Upperbody/Arm.upperarm.r/Arm.forearm.r/Arm.forearm.r_end
+    m_Weight: 1

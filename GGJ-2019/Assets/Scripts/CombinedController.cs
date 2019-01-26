@@ -26,7 +26,7 @@ public class CombinedController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         grabber = GetComponent<Grabber>();
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void Update()

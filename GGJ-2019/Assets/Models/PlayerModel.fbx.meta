@@ -19,6 +19,7 @@ ModelImporter:
     100026: Sphere
     100028: Model
     100030: Player
+    100032: Upperbody
     400000: Arm.forearm.l
     400002: Arm.forearm.l_end
     400004: Arm.forearm.r
@@ -35,6 +36,7 @@ ModelImporter:
     400026: Sphere
     400028: Model
     400030: Player
+    400032: Upperbody
     2100000: No Name
     2100002: Texture
     4300000: Sphere
