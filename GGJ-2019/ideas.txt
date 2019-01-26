@@ -17,3 +17,9 @@ players near thing
 players holding thing
 
 
+
+
+goal checker (component? SO?)
+
+goal checker component
+goals are just classes
