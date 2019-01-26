@@ -6,6 +6,7 @@ public class Grabber : MonoBehaviour
 {
     public LayerMask Layers;
     public float GrabDistance;
+    public Vector3 GrabOffset;
 
     public float HoldDistance;
     public float HoldElevation;
@@ -21,7 +22,7 @@ public class Grabber : MonoBehaviour
         if (grabbing) return;
 
         RaycastHit hit;
-        Ray r = new Ray(transform.position, transform.forward);
+        Ray r = new Ray(transform.TransformPoint(GrabOffset), transform.forward);
 
         Debug.DrawRay(r.origin, r.direction * GrabDistance, Color.red, 1f);
 
