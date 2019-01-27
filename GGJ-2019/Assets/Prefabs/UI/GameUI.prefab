@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.45882356, g: 0.45882356, b: 0.45882356, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -110,7 +110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -55}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4139391050540146912
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.45882356, g: 0.45882356, b: 0.45882356, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -241,7 +241,6 @@ GameObject:
   - component: {fileID: 4139391051338484743}
   - component: {fileID: 4139391051338484736}
   - component: {fileID: 4139391051338484737}
-  - component: {fileID: 4139391051338484738}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -332,26 +331,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4139391051338484738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4139391051338484739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6437273ca9016cf43a06e812970aa2ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GoalsPerTeam: 3
-  MaxTime: 60
-  Timer: 0
-  TeamAScoreboard: {fileID: 0}
-  TeamBScoreboard: {fileID: 0}
-  TimerText: {fileID: 0}
-  EndGameSplashObject: {fileID: 0}
-  EndGameSplashText: {fileID: 0}
 --- !u!1 &7038521835305994851
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.9333334, g: 0.9333334, b: 0.9333334, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -430,7 +409,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TEAM A WINS
+  m_Text: Couple A WINS
 --- !u!1001 &6827935721258030633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -438,6 +417,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4139391051338484742}
     m_Modifications:
+    - target: {fileID: 991934315346808345, guid: 29f3dded8007ca848bb2648f4591a379,
+        type: 3}
+      propertyPath: m_Name
+      value: Scoreboard B
+      objectReference: {fileID: 0}
     - target: {fileID: 991934315346808344, guid: 29f3dded8007ca848bb2648f4591a379,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -501,12 +485,12 @@ PrefabInstance:
     - target: {fileID: 991934315346808344, guid: 29f3dded8007ca848bb2648f4591a379,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 991934315346808344, guid: 29f3dded8007ca848bb2648f4591a379,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 600
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 991934315346808344, guid: 29f3dded8007ca848bb2648f4591a379,
         type: 3}
@@ -516,7 +500,7 @@ PrefabInstance:
     - target: {fileID: 991934315346808344, guid: 29f3dded8007ca848bb2648f4591a379,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 991934315346808344, guid: 29f3dded8007ca848bb2648f4591a379,
         type: 3}
@@ -542,11 +526,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 991934315346808345, guid: 29f3dded8007ca848bb2648f4591a379,
-        type: 3}
-      propertyPath: m_Name
-      value: Scoreboard B
       objectReference: {fileID: 0}
     - target: {fileID: 991934315702272542, guid: 29f3dded8007ca848bb2648f4591a379,
         type: 3}
@@ -838,6 +817,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4139391051338484742}
     m_Modifications:
+    - target: {fileID: 991934315346808345, guid: 29f3dded8007ca848bb2648f4591a379,
+        type: 3}
+      propertyPath: m_Name
+      value: Scoreboard A
+      objectReference: {fileID: 0}
     - target: {fileID: 991934315346808344, guid: 29f3dded8007ca848bb2648f4591a379,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -901,12 +885,12 @@ PrefabInstance:
     - target: {fileID: 991934315346808344, guid: 29f3dded8007ca848bb2648f4591a379,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 991934315346808344, guid: 29f3dded8007ca848bb2648f4591a379,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 600
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 991934315346808344, guid: 29f3dded8007ca848bb2648f4591a379,
         type: 3}
@@ -916,7 +900,7 @@ PrefabInstance:
     - target: {fileID: 991934315346808344, guid: 29f3dded8007ca848bb2648f4591a379,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 991934315346808344, guid: 29f3dded8007ca848bb2648f4591a379,
         type: 3}
@@ -942,11 +926,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 991934315346808345, guid: 29f3dded8007ca848bb2648f4591a379,
-        type: 3}
-      propertyPath: m_Name
-      value: Scoreboard A
       objectReference: {fileID: 0}
     - target: {fileID: 991934315702272542, guid: 29f3dded8007ca848bb2648f4591a379,
         type: 3}
