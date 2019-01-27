@@ -53,6 +53,11 @@ public class GoalChecker : MonoBehaviour
 
     GameState state;
 
+    void Start()
+    {
+        EndGameSplashObject.SetActive(false);
+    }
+
     void Update()
     {
         switch (state)
@@ -100,9 +105,10 @@ public class GoalChecker : MonoBehaviour
             if (TeamBGoalStatus[i]) bWins++;
         }
 
-        if (aWins > bWins) Debug.Log("Team A wins!");
-        if (aWins < bWins) Debug.Log("Team B wins!");
-        if (aWins == bWins) Debug.Log("Nobody wins!");
+        EndGameSplashObject.SetActive(true);
+        EndGameSplashText.text = aWins > bWins ? "LEFT COUPLE WINS" :
+            (aWins < bWins ? "RIGHT COUPLE WINS" : "HEALTHY COMPROMISE");
+
     }
 
     void UpdateFinished()

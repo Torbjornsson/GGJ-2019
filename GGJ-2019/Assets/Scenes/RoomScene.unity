@@ -446,7 +446,8 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4139391051338484738, guid: 50abe1386ab0dbf41afbdb821ba9214a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 50abe1386ab0dbf41afbdb821ba9214a, type: 3}
 --- !u!114 &365321084 stripped
 MonoBehaviour:
@@ -484,6 +485,24 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &365321087 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1304673238443959639, guid: 50abe1386ab0dbf41afbdb821ba9214a,
+    type: 3}
+  m_PrefabInstance: {fileID: 365321083}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &365321088 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 102276189010379463, guid: 50abe1386ab0dbf41afbdb821ba9214a,
+    type: 3}
+  m_PrefabInstance: {fileID: 365321083}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &428490000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1740,8 +1759,8 @@ MonoBehaviour:
   TeamAScoreboard: {fileID: 365321085}
   TeamBScoreboard: {fileID: 365321084}
   TimerText: {fileID: 365321086}
-  EndGameSplashObject: {fileID: 0}
-  EndGameSplashText: {fileID: 0}
+  EndGameSplashObject: {fileID: 365321088}
+  EndGameSplashText: {fileID: 365321087}
 --- !u!1 &1612546689 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: e988e9619938f8e4589957eb184b9723,
