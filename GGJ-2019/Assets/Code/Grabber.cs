@@ -12,7 +12,7 @@ public class Grabber : MonoBehaviour
     public float HoldElevation;
 
     Joint joint;
-    bool grabbing;
+    public bool grabbing;
 
     public bool HoldingHeavy { get; private set; }
 
@@ -86,5 +86,11 @@ public class Grabber : MonoBehaviour
 
         grabbing = false;
         Destroy(joint);
+        joint = null;
+    }
+
+    public Rigidbody CurrentlyGrabbedObject()
+    {
+        return joint != null ? joint.connectedBody : null;
     }
 }

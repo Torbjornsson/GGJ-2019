@@ -18,6 +18,7 @@ public class CombinedController : MonoBehaviour
     Animator anim;
 
     bool wantGrab;
+    public Vector3 Velocity;
     bool holdingHeavy => grabber.HoldingHeavy;
 
 
@@ -54,7 +55,8 @@ public class CombinedController : MonoBehaviour
         movement = Vector3.ClampMagnitude(movement, 1);
         if (movement.magnitude < 0.2f) movement = Vector3.zero;
 
-        rb.velocity = Vector3.MoveTowards(rb.velocity, movement * MovementSpeed, Acceleration * Time.fixedDeltaTime);
+        Velocity = Vector3.MoveTowards(rb.velocity, movement * MovementSpeed, Acceleration * Time.fixedDeltaTime);
+        rb.velocity = Velocity;
 
         anim.SetBool("IsWalking", movement != Vector3.zero);
 
