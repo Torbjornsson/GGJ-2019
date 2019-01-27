@@ -37,6 +37,8 @@ public class ObjectSpawner : MonoBehaviour
     {
         var spawnCandidates = new List<PlaceableObject>(SpawnLibrary);
 
+        spawnCandidates.Shuffle();
+
         //foreach(var kvp in SpawnableObjects)
         //{
         //    for (int i = 0; i < kvp.Value; i++)

@@ -9,6 +9,8 @@ public class LoopSound : MonoBehaviour
     private bool _playing;
     private float _delayLeft;
 
+
+    [ContextMenu("Play")]
     public void Play()
     {
         _playing = true;
@@ -27,7 +29,7 @@ public class LoopSound : MonoBehaviour
         {
             Sound.pitch = 1 + Random.Range(-PitchDiff, PitchDiff);
             Sound.Play();
-            _delayLeft = Delay;
+            _delayLeft =+ Delay;
         }
     }
 }

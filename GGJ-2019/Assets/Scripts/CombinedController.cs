@@ -48,12 +48,19 @@ public class CombinedController : MonoBehaviour
 
     void FixedUpdate()
     {
+        var canMove = GoalChecker.Instance.State == GoalChecker.GameState.Running ||
+            GoalChecker.Instance.State == GoalChecker.GameState.Finished;
+
+        
+
         var movement =
             Vector3.forward * Input.GetAxisRaw($"Player{Player}Vertical") +
             Vector3.right * Input.GetAxisRaw($"Player{Player}Horizontal");
 
         movement = Vector3.ClampMagnitude(movement, 1);
         if (movement.magnitude < 0.2f) movement = Vector3.zero;
+
+        if (!canMove) movement = Vector3.zero;
 
         Velocity = Vector3.MoveTowards(rb.velocity, movement * MovementSpeed, Acceleration * Time.fixedDeltaTime);
         rb.velocity = Velocity;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using System.Linq;
 
-public class GoalChecker : MonoBehaviour
+public class GoalChecker : Singleton<GoalChecker>
 {
     Goal[] TeamAGoals;
     Goal[] TeamBGoals;
@@ -17,8 +17,17 @@ public class GoalChecker : MonoBehaviour
 
     public int GoalsPerTeam = 5;
 
+
+    public float CountdownTime = 5f;
     public float MaxTime = 60;
     public float Timer;
+
+    public AudioSource BGM;
+    public LoopSound Ticks;
+    public AudioSource EndGameSound;
+
+
+    public float FastTickThreshold = 15;
 
     //private void OnGUI()
     //{
@@ -44,14 +53,15 @@ public class GoalChecker : MonoBehaviour
     public GameObject EndGameSplashObject;
     public Text EndGameSplashText;
 
-    enum GameState
+    public enum GameState
     {
         Preparing,
+        Countdown,
         Running,
         Finished
     }
 
-    GameState state;
+    public GameState State;
 
     void Start()
     {
@@ -60,10 +70,13 @@ public class GoalChecker : MonoBehaviour
 
     void Update()
     {
-        switch (state)
+        switch (State)
         {
             case GameState.Preparing:
                 Initialize();
+                break;
+            case GameState.Countdown:
+                UpdateCountdown();
                 break;
             case GameState.Running:
                 UpdateRunning();
@@ -74,9 +87,44 @@ public class GoalChecker : MonoBehaviour
         }
     }
 
+    void UpdateCountdown()
+    {
+
+        TimerText.text = Timer.ToString();
+
+        EndGameSplashObject.SetActive(true);
+        EndGameSplashText.text = "GET READY";
+
+        if(Timer < 1)
+        {
+            EndGameSplashText.text = "DECORATE!";
+        }
+
+        TimerText.text = $"{Timer:00}";
+
+        Timer -= Time.deltaTime;
+
+        if(Timer < 0)
+        {
+            Timer = MaxTime;
+            EndGameSplashObject.SetActive(false);
+            Ticks.Play();
+            Ticks.Delay = 1f;
+
+            State = GameState.Running;
+        }
+    }
+
+
     void UpdateRunning()
     {
         Timer -= Time.deltaTime;
+
+        if(Timer < FastTickThreshold)
+        {
+            BGM.pitch = 1.15f;
+            Ticks.Delay = .5f;
+        }
 
         for (int i = 0; i < GoalsPerTeam; i++)
         {
@@ -95,7 +143,10 @@ public class GoalChecker : MonoBehaviour
     void EndGame()
     {
         Timer = 0;
-        state = GameState.Finished;
+        State = GameState.Finished;
+
+        BGM.pitch = 1f;
+        Ticks.Stop();
 
         var aWins = 0;
         var bWins = 0;
@@ -109,6 +160,8 @@ public class GoalChecker : MonoBehaviour
         EndGameSplashText.text = aWins > bWins ? "LEFT COUPLE WINS" :
             (aWins < bWins ? "RIGHT COUPLE WINS" : "HEALTHY COMPROMISE");
 
+        EndGameSound.Play(5000);
+
     }
 
     void UpdateFinished()
@@ -121,14 +174,13 @@ public class GoalChecker : MonoBehaviour
         GoalObjects = new List<GoalObject>(FindObjectsOfType<GoalObject>());
         if (GoalObjects.Count == 0)
         {
-            state = GameState.Preparing;
+            State = GameState.Preparing;
             return;
         }
 
         Debug.Log("Initializing");
 
 
-        Timer = MaxTime;
 
         TeamAGoals = new Goal[GoalsPerTeam];
         TeamBGoals = new Goal[GoalsPerTeam];
@@ -148,7 +200,13 @@ public class GoalChecker : MonoBehaviour
         TeamAScoreboard.SetGoals(TeamAGoals.Select((g) => g.Description).ToArray());
         TeamBScoreboard.SetGoals(TeamBGoals.Select((g) => g.Description).ToArray());
 
-        state = GameState.Running;
+        BGM.pitch = 1f;
+        Ticks.Stop();
+        Ticks.Delay = 1f;
+
+        Timer = CountdownTime;
+
+        State = GameState.Countdown;
     }
 
     Goal GetGoal()
