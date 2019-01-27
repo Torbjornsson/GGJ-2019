@@ -85,8 +85,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: 1
-  MovementSpeed: 10
-  Acceleration: 5
+  MovementSpeed: 5
+  Acceleration: 20
   RotationSpeed: 360
   RotationAccel: 720
   Velocity: {x: 0, y: 0, z: 0}

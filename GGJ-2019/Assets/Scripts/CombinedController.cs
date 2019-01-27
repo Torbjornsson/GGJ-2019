@@ -46,6 +46,8 @@ public class CombinedController : MonoBehaviour
         }
     }
 
+    public Vector3 DebugMovement;
+
     void FixedUpdate()
     {
         var canMove = GoalChecker.Instance.State == GoalChecker.GameState.Running ||
@@ -56,6 +58,9 @@ public class CombinedController : MonoBehaviour
         var movement =
             Vector3.forward * Input.GetAxisRaw($"Player{Player}Vertical") +
             Vector3.right * Input.GetAxisRaw($"Player{Player}Horizontal");
+
+        DebugMovement = movement;
+
 
         movement = Vector3.ClampMagnitude(movement, 1);
         if (movement.magnitude < 0.2f) movement = Vector3.zero;

@@ -22,8 +22,8 @@ public class GoalChecker : Singleton<GoalChecker>
     public float MaxTime = 60;
     public float Timer;
 
-    public AudioSource BGM;
     public LoopSound Ticks;
+    public AudioSource GameStartSound;
     public AudioSource EndGameSound;
 
 
@@ -66,6 +66,8 @@ public class GoalChecker : Singleton<GoalChecker>
     void Start()
     {
         EndGameSplashObject.SetActive(false);
+
+        gameObject.AddComponent<Restarter>();
     }
 
     void Update()
@@ -111,6 +113,8 @@ public class GoalChecker : Singleton<GoalChecker>
             Ticks.Play();
             Ticks.Delay = 1f;
 
+            GameStartSound.Play();
+
             State = GameState.Running;
         }
     }
@@ -122,7 +126,7 @@ public class GoalChecker : Singleton<GoalChecker>
 
         if(Timer < FastTickThreshold)
         {
-            BGM.pitch = 1.15f;
+            PersistentBGM.Instance.Audio.pitch = 1.15f;
             Ticks.Delay = .5f;
         }
 
@@ -145,7 +149,7 @@ public class GoalChecker : Singleton<GoalChecker>
         Timer = 0;
         State = GameState.Finished;
 
-        BGM.pitch = 1f;
+        PersistentBGM.Instance.Audio.pitch = 1f;
         Ticks.Stop();
 
         var aWins = 0;
@@ -178,15 +182,8 @@ public class GoalChecker : Singleton<GoalChecker>
             return;
         }
 
-        Debug.Log("Initializing");
-
-
-
         TeamAGoals = new Goal[GoalsPerTeam];
         TeamBGoals = new Goal[GoalsPerTeam];
-
-
-        Debug.Log(GoalObjects.Count);
 
         for (int i = 0; i < GoalsPerTeam; i++)
         {
@@ -200,7 +197,7 @@ public class GoalChecker : Singleton<GoalChecker>
         TeamAScoreboard.SetGoals(TeamAGoals.Select((g) => g.Description).ToArray());
         TeamBScoreboard.SetGoals(TeamBGoals.Select((g) => g.Description).ToArray());
 
-        BGM.pitch = 1f;
+        PersistentBGM.Instance.Audio.pitch = 1f;
         Ticks.Stop();
         Ticks.Delay = 1f;
 

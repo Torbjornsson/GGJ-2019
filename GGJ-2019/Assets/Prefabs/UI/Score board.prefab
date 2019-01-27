@@ -150,8 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GoalPrefab: {fileID: 2923264440374680220, guid: 3041c1d6836f91940a4db39cbdf2d43d,
     type: 3}
-  CheckPrefab: {fileID: 5439319356346966946, guid: c4a5aa33db648064792a2135a25e08a6,
-    type: 3}
+  CheckPrefab: {fileID: 281, guid: c4a5aa33db648064792a2135a25e08a6, type: 3}
   GoalHolder: {fileID: 2451862519627076370}
   CheckboxHolder: {fileID: 2760695546264407013}
 --- !u!1 &3675314484839630328
