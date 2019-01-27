@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 148805411047744804}
   - component: {fileID: 4828681612092440792}
   - component: {fileID: 2006123867149512932}
+  - component: {fileID: 432994121571679739}
   m_Layer: 0
   m_Name: TvBench
   m_TagString: Untagged
@@ -92,6 +93,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Heavy: 1
+--- !u!114 &432994121571679739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9008900986592189641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc51f679bab73cd46b151f0f4e6ad456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FriendlyName: TV BENCH
 --- !u!1001 &1385577758747762350
 PrefabInstance:
   m_ObjectHideFlags: 0

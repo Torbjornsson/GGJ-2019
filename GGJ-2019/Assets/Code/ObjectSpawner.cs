@@ -14,8 +14,10 @@ public class ObjectSpawner : MonoBehaviour
     //  if so, spawn it
 
 
-    public ObjectCountDictionary SpawnableObjects;
+    //public ObjectCountDictionary SpawnableObjects;
     public Bounds SpawnBounds;
+
+    public List<PlaceableObject> SpawnLibrary;
 
     public int SpawnCount;
 
@@ -28,22 +30,20 @@ public class ObjectSpawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnObjects());
+        SpawnObjects();
     }
 
-    IEnumerator SpawnObjects()
+    void SpawnObjects()
     {
-        var spawnCandidates = new List<PlaceableObject>();
-        
-        foreach(var kvp in SpawnableObjects)
-        {
-            for (int i = 0; i < kvp.Value; i++)
-            {
-                spawnCandidates.Add(kvp.Key);
-            }
-        }
+        var spawnCandidates = new List<PlaceableObject>(SpawnLibrary);
 
-        //var colliderResults = new Collider[16];
+        //foreach(var kvp in SpawnableObjects)
+        //{
+        //    for (int i = 0; i < kvp.Value; i++)
+        //    {
+        //        spawnCandidates.Add(kvp.Key);
+        //    }
+        //}
 
         var infiniteLoopGuard = 9999;
         var spawned = 0;
@@ -51,7 +51,7 @@ public class ObjectSpawner : MonoBehaviour
         {
             start:
 
-            if (infiniteLoopGuard-- < 0) yield break;
+            if (infiniteLoopGuard-- < 0) return;
 
             var spawnIndex = Random.Range(0, spawnCandidates.Count);
             var selectedObject = spawnCandidates[spawnIndex];
@@ -72,12 +72,11 @@ public class ObjectSpawner : MonoBehaviour
                 {
                     Debug.DrawRay(pos, Vector3.up);
 
-                    yield return null;
 
                     goto start;
                 }
 
-                yield return null;
+
             }
 
             
@@ -87,7 +86,6 @@ public class ObjectSpawner : MonoBehaviour
 
             spawned++;
 
-            yield return null;
         }
     }
 }

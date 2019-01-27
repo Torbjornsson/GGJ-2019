@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3970857763206386104}
   - component: {fileID: 6679401412030574474}
   - component: {fileID: 2772249100285655486}
+  - component: {fileID: 7312739379402315468}
   m_Layer: 0
   m_Name: SofaLarge
   m_TagString: Untagged
@@ -82,6 +83,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Heavy: 1
+--- !u!114 &7312739379402315468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7701771646883269939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc51f679bab73cd46b151f0f4e6ad456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FriendlyName: SOFFA
 --- !u!65 &498683002286686709
 BoxCollider:
   m_ObjectHideFlags: 0

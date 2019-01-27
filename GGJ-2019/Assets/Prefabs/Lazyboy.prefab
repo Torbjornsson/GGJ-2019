@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5012256297117239042}
   - component: {fileID: 9190343234282850602}
   - component: {fileID: 3678838173426321722}
+  - component: {fileID: 1985028570498374093}
   m_Layer: 0
   m_Name: Lazyboy
   m_TagString: Untagged
@@ -79,6 +80,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Heavy: 0
+--- !u!114 &1985028570498374093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832308518088161938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc51f679bab73cd46b151f0f4e6ad456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FriendlyName: LATPOJKE
 --- !u!65 &382235176841994433
 BoxCollider:
   m_ObjectHideFlags: 0

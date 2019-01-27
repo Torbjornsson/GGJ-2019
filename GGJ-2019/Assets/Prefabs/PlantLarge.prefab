@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 512293214059409673}
   - component: {fileID: 8634764375811507201}
   - component: {fileID: 8015168036967068708}
+  - component: {fileID: 9182181528499822221}
   m_Layer: 0
   m_Name: PlantLarge
   m_TagString: Untagged
@@ -79,6 +80,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Heavy: 0
+--- !u!114 &9182181528499822221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8551651180443130687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc51f679bab73cd46b151f0f4e6ad456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FriendlyName: PLANTERA
 --- !u!65 &5598099404074291243
 BoxCollider:
   m_ObjectHideFlags: 0

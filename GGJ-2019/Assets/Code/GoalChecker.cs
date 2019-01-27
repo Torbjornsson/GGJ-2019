@@ -13,26 +13,109 @@ public class GoalChecker : MonoBehaviour
 
     List<GoalObject> GoalObjects;
 
-    public int GoalsPerTeam = 3;
+    public int GoalsPerTeam = 5;
+
+    public float MaxTime = 60;
+    public float Timer;
 
     private void OnGUI()
     {
-        GUILayout.BeginVertical();
-
-        foreach (var g in TeamAGoals)
+        GUILayout.BeginArea(new Rect(0, 0, 200, 400));
+        for (int i = 0; i < GoalsPerTeam; i++)
         {
-            GUILayout.Label($"{g.Description}: {(g.CheckCompleted() ? "OK" : "NOT OK")}");
+            GUILayout.Label($"{TeamAGoals[i].Description}: {TeamAGoalStatus[i]}");
         }
+        GUILayout.EndArea();
 
-        GUILayout.EndVertical();
+        GUILayout.BeginArea(new Rect(Screen.width - 200, 0, 200, 400));
+        for (int i = 0; i < GoalsPerTeam; i++)
+        {
+            GUILayout.Label($"{TeamBGoals[i].Description}: {TeamBGoalStatus[i]}");
+        }
+        GUILayout.EndArea();
+
     }
 
-    private void Start()
+    enum GameState
     {
+        Preparing,
+        Running,
+        Finished
+    }
+
+    GameState state;
+
+    void Update()
+    {
+        switch (state)
+        {
+            case GameState.Preparing:
+                Initialize();
+                break;
+            case GameState.Running:
+                UpdateRunning();
+                break;
+            case GameState.Finished:
+                UpdateFinished();
+                break;
+        }
+    }
+
+    void UpdateRunning()
+    {
+        Timer -= Time.deltaTime;
+
+        for (int i = 0; i < GoalsPerTeam; i++)
+        {
+            TeamAGoalStatus[i] = TeamAGoals[i].CheckCompleted();
+            TeamBGoalStatus[i] = TeamBGoals[i].CheckCompleted();
+        }
+
+        if (Timer <= 0) EndGame();
+    }
+
+    void EndGame()
+    {
+        Timer = 0;
+        state = GameState.Finished;
+
+        var aWins = 0;
+        var bWins = 0;
+        for (int i = 0; i < GoalsPerTeam; i++)
+        {
+            if (TeamAGoalStatus[i]) aWins++;
+            if (TeamBGoalStatus[i]) bWins++;
+        }
+
+        if (aWins > bWins) Debug.Log("Team A wins!");
+        if (aWins < bWins) Debug.Log("Team B wins!");
+        if (aWins == bWins) Debug.Log("Nobody wins!");
+    }
+
+    void UpdateFinished()
+    {
+        //do nothing?
+    }
+
+    private void Initialize()
+    {
+        GoalObjects = new List<GoalObject>(FindObjectsOfType<GoalObject>());
+        if (GoalObjects.Count == 0)
+        {
+            state = GameState.Preparing;
+            return;
+        }
+
+        Debug.Log("Initializing");
+
+
+        Timer = MaxTime;
+
         TeamAGoals = new Goal[GoalsPerTeam];
         TeamBGoals = new Goal[GoalsPerTeam];
 
-        GoalObjects = new List<GoalObject>(FindObjectsOfType<GoalObject>());
+
+        Debug.Log(GoalObjects.Count);
 
         for (int i = 0; i < GoalsPerTeam; i++)
         {
@@ -43,23 +126,7 @@ public class GoalChecker : MonoBehaviour
         TeamAGoalStatus = new bool[GoalsPerTeam];
         TeamBGoalStatus = new bool[GoalsPerTeam];
 
-
-        //    Goals = new List<Goal>();
-
-        //    var objects = FindObjectsOfType<GoalObject>();
-
-
-        //    foreach(var o in objects)
-        //    {
-        //        var otherObject = objects[Random.Range(0, objects.Length)];
-
-        //        Goals.Add(new ObjectBySideWall(o));
-        //        Goals.Add(new ObjectByCorner(o));
-        //        Goals.Add(new ObjectByAnyWall(o));
-        //        Goals.Add(new ObjectFacingDirection(o));
-        //        Goals.Add(new ObjectNearObject(o, otherObject));
-        //        Goals.Add(new ObjectFacingObject(o, otherObject));
-        //}
+        state = GameState.Running;
     }
 
     Goal GetGoal()
@@ -105,15 +172,6 @@ public class GoalChecker : MonoBehaviour
             default:
                 a.UseCount++;
                 return new ObjectOnSideOfRoom(a);
-        }
-    }
-
-    private void Update()
-    {
-        for (int i = 0; i < GoalsPerTeam; i++)
-        {
-            TeamAGoalStatus[i] = TeamAGoals[i].CheckCompleted();
-            TeamBGoalStatus[i] = TeamBGoals[i].CheckCompleted();
         }
     }
 

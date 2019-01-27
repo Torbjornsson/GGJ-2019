@@ -170,7 +170,22 @@ PrefabInstance:
     - target: {fileID: 1147515872383779359, guid: 66cf1c698a3ca6e49bf164f57c08e833,
         type: 3}
       propertyPath: GrabOffset.y
-      value: -0.2
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147515872383779359, guid: 66cf1c698a3ca6e49bf164f57c08e833,
+        type: 3}
+      propertyPath: GrabDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20389023491698098, guid: 66cf1c698a3ca6e49bf164f57c08e833,
+        type: 3}
+      propertyPath: Acceleration
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 20389023491698098, guid: 66cf1c698a3ca6e49bf164f57c08e833,
+        type: 3}
+      propertyPath: MovementSpeed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66cf1c698a3ca6e49bf164f57c08e833, type: 3}
@@ -431,6 +446,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: e988e9619938f8e4589957eb184b9723, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e988e9619938f8e4589957eb184b9723, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.23375
@@ -491,10 +510,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b7a0ee3c710814f44a6e00dbaac58f39, type: 2}
-    - target: {fileID: 100002, guid: e988e9619938f8e4589957eb184b9723, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 2300002, guid: e988e9619938f8e4589957eb184b9723, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1504,6 +1519,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1587331809}
   - component: {fileID: 1587331808}
+  - component: {fileID: 1587331810}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -1523,21 +1539,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7609dd1d9575f6f4eb9e24b04b3c968b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnableObjects:
-    m_keys:
-    - {fileID: 3970857763206386104, guid: 09044518b583ed34eac8d95d3874051f, type: 3}
-    - {fileID: 8687022666191900831, guid: 53541877636300441844a1dcc11d20d1, type: 3}
-    - {fileID: 5012256297117239042, guid: 5375a3e7528ac5043863bd7f97f0f5c6, type: 3}
-    - {fileID: 6531071152709851850, guid: a6460adf1b185c04c86b30b0b037dbc5, type: 3}
-    - {fileID: 148805411047744804, guid: 5d2b4a4f4fefffe4cae8ce9ca35ac0c5, type: 3}
-    - {fileID: 8437391902310086906, guid: 8b19211ff38c5d340b3bb0abcb4e6059, type: 3}
-    - {fileID: 4562478384594308649, guid: c43c07eea6756f544a26c39566489d99, type: 3}
-    - {fileID: 512293214059409673, guid: c46f685b4de29134080244ba0892b2c3, type: 3}
-    m_values: 0200000002000000020000000200000002000000020000000200000002000000
   SpawnBounds:
     m_Center: {x: 0, y: 0.05, z: 0}
     m_Extent: {x: 3.84, y: 0, z: 2.79}
-  SpawnCount: 16
+  SpawnLibrary:
+  - {fileID: 6531071152709851850, guid: a6460adf1b185c04c86b30b0b037dbc5, type: 3}
+  - {fileID: 2093252875234876182, guid: b9c735cb368b4f4478a76aa00c797b8d, type: 3}
+  - {fileID: 7697962496670292981, guid: bd86c2ed39139de4b9b6a0e1393e769b, type: 3}
+  - {fileID: 5012256297117239042, guid: 5375a3e7528ac5043863bd7f97f0f5c6, type: 3}
+  - {fileID: 512293214059409673, guid: c46f685b4de29134080244ba0892b2c3, type: 3}
+  - {fileID: 3970857763206386104, guid: 09044518b583ed34eac8d95d3874051f, type: 3}
+  - {fileID: 8687022666191900831, guid: 53541877636300441844a1dcc11d20d1, type: 3}
+  - {fileID: 4562478384594308649, guid: c43c07eea6756f544a26c39566489d99, type: 3}
+  - {fileID: 148805411047744804, guid: 5d2b4a4f4fefffe4cae8ce9ca35ac0c5, type: 3}
+  SpawnCount: 6
 --- !u!4 &1587331809
 Transform:
   m_ObjectHideFlags: 0
@@ -1552,6 +1567,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1587331810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587331807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6437273ca9016cf43a06e812970aa2ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GoalsPerTeam: 3
+  MaxTime: 60
+  Timer: 0
 --- !u!1 &1612546689 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: e988e9619938f8e4589957eb184b9723,
@@ -1649,6 +1679,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: e988e9619938f8e4589957eb184b9723, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e988e9619938f8e4589957eb184b9723, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.7662504
@@ -1697,10 +1731,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b7a0ee3c710814f44a6e00dbaac58f39, type: 2}
-    - target: {fileID: 100002, guid: e988e9619938f8e4589957eb184b9723, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 2300002, guid: e988e9619938f8e4589957eb184b9723, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

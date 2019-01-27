@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 7697962496670292981}
   - component: {fileID: 4572455289655169102}
   - component: {fileID: 4591977328581770838}
+  - component: {fileID: 2581244097387464859}
   m_Layer: 0
   m_Name: FotStool
   m_TagString: Untagged
@@ -92,6 +93,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2581244097387464859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6725043027083252694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc51f679bab73cd46b151f0f4e6ad456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FriendlyName: FOTSTOL
 --- !u!1001 &3377264603671346212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -99,10 +113,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4981773839492248053}
     m_Modifications:
-    - target: {fileID: 100000, guid: bad22494fa8f87f4fa2590ccb1c37e67, type: 3}
-      propertyPath: m_Name
-      value: fotStool
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bad22494fa8f87f4fa2590ccb1c37e67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -146,6 +156,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: bad22494fa8f87f4fa2590ccb1c37e67, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bad22494fa8f87f4fa2590ccb1c37e67, type: 3}
+      propertyPath: m_Name
+      value: fotStool
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: bad22494fa8f87f4fa2590ccb1c37e67, type: 3}
       propertyPath: m_Materials.Array.data[0]
