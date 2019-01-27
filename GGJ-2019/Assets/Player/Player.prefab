@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3989331631527231626}
   - component: {fileID: 1147515872383779359}
   - component: {fileID: 20389023491698098}
+  - component: {fileID: 4570126150086394885}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -89,6 +90,20 @@ MonoBehaviour:
   RotationSpeed: 360
   RotationAccel: 720
   Velocity: {x: 0, y: 0, z: 0}
+--- !u!136 &4570126150086394885
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255506334}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.26
+  m_Height: 1.53
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.76, z: 0}
 --- !u!1 &7812021235897767616
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,7 +397,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -496,7 +511,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
