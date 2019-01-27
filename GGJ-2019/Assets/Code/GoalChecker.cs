@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using System.Linq;
 
 public class GoalChecker : MonoBehaviour
 {
@@ -18,23 +20,29 @@ public class GoalChecker : MonoBehaviour
     public float MaxTime = 60;
     public float Timer;
 
-    private void OnGUI()
-    {
-        GUILayout.BeginArea(new Rect(0, 0, 200, 400));
-        for (int i = 0; i < GoalsPerTeam; i++)
-        {
-            GUILayout.Label($"{TeamAGoals[i].Description}: {TeamAGoalStatus[i]}");
-        }
-        GUILayout.EndArea();
+    //private void OnGUI()
+    //{
+    //    GUILayout.BeginArea(new Rect(0, 0, 200, 400));
+    //    for (int i = 0; i < GoalsPerTeam; i++)
+    //    {
+    //        GUILayout.Label($"{TeamAGoals[i].Description}: {TeamAGoalStatus[i]}");
+    //    }
+    //    GUILayout.EndArea();
 
-        GUILayout.BeginArea(new Rect(Screen.width - 200, 0, 200, 400));
-        for (int i = 0; i < GoalsPerTeam; i++)
-        {
-            GUILayout.Label($"{TeamBGoals[i].Description}: {TeamBGoalStatus[i]}");
-        }
-        GUILayout.EndArea();
+    //    GUILayout.BeginArea(new Rect(Screen.width - 200, 0, 200, 400));
+    //    for (int i = 0; i < GoalsPerTeam; i++)
+    //    {
+    //        GUILayout.Label($"{TeamBGoals[i].Description}: {TeamBGoalStatus[i]}");
+    //    }
+    //    GUILayout.EndArea();
 
-    }
+    //}
+
+    public ScoreboardSetter TeamAScoreboard;
+    public ScoreboardSetter TeamBScoreboard;
+    public Text TimerText;
+    public GameObject EndGameSplashObject;
+    public Text EndGameSplashText;
 
     enum GameState
     {
@@ -71,7 +79,12 @@ public class GoalChecker : MonoBehaviour
             TeamBGoalStatus[i] = TeamBGoals[i].CheckCompleted();
         }
 
+        TeamAScoreboard.SetGoalStatus(TeamAGoalStatus);
+        TeamBScoreboard.SetGoalStatus(TeamBGoalStatus);
+
         if (Timer <= 0) EndGame();
+
+        TimerText.text = $"{Timer:00}";
     }
 
     void EndGame()
@@ -125,6 +138,9 @@ public class GoalChecker : MonoBehaviour
 
         TeamAGoalStatus = new bool[GoalsPerTeam];
         TeamBGoalStatus = new bool[GoalsPerTeam];
+
+        TeamAScoreboard.SetGoals(TeamAGoals.Select((g) => g.Description).ToArray());
+        TeamBScoreboard.SetGoals(TeamBGoals.Select((g) => g.Description).ToArray());
 
         state = GameState.Running;
     }
