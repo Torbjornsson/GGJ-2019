@@ -139,8 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54591a77a14f1a447a5705e513fb1949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Controller: {fileID: 0}
-  Grabber: {fileID: 0}
+  Controller: {fileID: 20389023491698098}
+  Grabber: {fileID: 1147515872383779359}
   WalkSound: {fileID: 7464120707043673006}
   DragSound: {fileID: 7267785404819932050}
   PickupSound: {fileID: 854741859303551319}
