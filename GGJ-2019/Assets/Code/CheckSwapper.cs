@@ -7,11 +7,6 @@ public class CheckSwapper : MonoBehaviour
 
     public bool Checked;
 
-    private void OnValidate()
-    {
-        Update();
-    }
-
     private void Update()
     {
         if (!TrueState) return;
